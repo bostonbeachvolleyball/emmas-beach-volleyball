@@ -3,18 +3,476 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emma's Beach Volleyball</title>
+
+  <title>Emma's Beach Volleyball | Boston</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #173b3b;
+      background: #f8f4eb;
+      line-height: 1.6;
+    }
+
+    nav {
+      height: 76px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8f4eb;
+      border-bottom: 1px solid #ddd7ca;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    nav a {
+      color: #173b3b;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
+      min-height: 620px;
+      padding: 100px 8%;
+      background: #2c9696;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 10vw, 130px);
+      line-height: 0.9;
+      letter-spacing: -6px;
+      margin: 0 0 35px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      background: white;
+      color: #176b6b;
+      text-decoration: none;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #2c9696;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin: 0 0 50px;
+    }
+
+    .tournament {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: #fffdf8;
+      border: 1px solid #ddd7ca;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+    }
+
+    .tournament-date {
+      background: #173b3b;
+      color: white;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .date-number {
+      font-size: 90px;
+      line-height: 0.9;
+      font-weight: 800;
+      letter-spacing: -5px;
+    }
+
+    .date-month {
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-top: 10px;
+    }
+
+    .tournament-info {
+      padding: 50px;
+    }
+
+    .tournament-info h3 {
+      font-size: 36px;
+      line-height: 1.1;
+      margin: 0 0 25px;
+      letter-spacing: -1px;
+    }
+
+    .details {
+      border-top: 1px solid #ddd7ca;
+      border-bottom: 1px solid #ddd7ca;
+      padding: 20px 0;
+      margin: 25px 0;
+    }
+
+    .details p {
+      margin: 7px 0;
+    }
+
+    .formats {
+      background: #e7dfcf;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .format-card {
+      background: #f8f4eb;
+      padding: 40px;
+      min-height: 280px;
+    }
+
+    .format-card h3 {
+      font-size: 34px;
+      margin: 0 0 15px;
+      letter-spacing: -1px;
+    }
+
+    .about {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      font-size: 27px;
+      line-height: 1.4;
+      max-width: 850px;
+    }
+
+    .cta {
+      background: #2c9696;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin: 0 auto 25px;
+      max-width: 900px;
+    }
+
+    .cta p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: #173b3b;
+      color: white;
+      padding: 45px 8%;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 750px) {
+
+      nav {
+        padding: 0 5%;
+      }
+
+      nav div:last-child {
+        display: none;
+      }
+
+      .hero {
+        min-height: 560px;
+        padding: 80px 7%;
+      }
+
+      .hero h1 {
+        letter-spacing: -4px;
+      }
+
+      .hero p {
+        font-size: 19px;
+      }
+
+      section {
+        padding: 65px 7%;
+      }
+
+      .tournament {
+        grid-template-columns: 1fr;
+      }
+
+      .tournament-date {
+        min-height: 250px;
+      }
+
+      .date-number {
+        font-size: 70px;
+      }
+
+      .tournament-info {
+        padding: 35px;
+      }
+
+      .format-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-text {
+        font-size: 22px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Emma's Beach Volleyball 🏐</h1>
+  <nav>
+    <div class="logo">EMMA'S BEACH VOLLEYBALL</div>
 
-  <p>Beach volleyball tournaments around Boston.</p>
+    <div>
+      <a href="#tournaments">Tournaments</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <h2>Spooky Season Jamboree</h2>
 
-  <p>Sunday, October 4 · Revere Beach</p>
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">Boston • Massachusetts</div>
+
+      <h1>MAKE A DAY<br>OF IT.</h1>
+
+      <p>
+        Beach volleyball tournaments built around good competition,
+        good people, and a little bit of chaos.
+      </p>
+
+      <a class="button" href="#tournaments">
+        View the next tournament
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section id="tournaments">
+
+    <div class="section-label">Next up</div>
+
+    <h2 class="section-title">Come play.</h2>
+
+    <div class="tournament">
+
+      <div class="tournament-date">
+
+        <div>
+          <div class="date-number">04</div>
+          <div class="date-month">October</div>
+        </div>
+
+        <div>Sunday · 2026</div>
+
+      </div>
+
+
+      <div class="tournament-info">
+
+        <h3>Spooky Season Jamboree</h3>
+
+        <p>
+          The final full day of tournaments at Revere Beach
+          for the season.
+        </p>
+
+        <div class="details">
+          <p><strong>Location:</strong> Revere Beach</p>
+          <p><strong>Start:</strong> 8:30 AM</p>
+          <p><strong>Formats:</strong> 2s and 4s</p>
+          <p><strong>Suggested contribution:</strong> $20</p>
+        </div>
+
+        <a class="button" href="#">
+          Tournament details
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="formats">
+
+    <div class="section-label">How we play</div>
+
+    <h2 class="section-title">Two ways to<br>hit the sand.</h2>
+
+    <div class="format-grid">
+
+      <div class="format-card">
+
+        <h3>2s</h3>
+
+        <p>
+          Competitive doubles beach volleyball with a friendly
+          atmosphere. Teams of 2M, 1M1F, or 2F are welcome.
+        </p>
+
+        <p>
+          Played by the book, but nobody is taking themselves
+          too seriously.
+        </p>
+
+      </div>
+
+
+      <div class="format-card">
+
+        <h3>4s</h3>
+
+        <p>
+          Grab three friends and get on the sand. Modified
+          four-person rules, beach games, and a strong emphasis
+          on having a good time.
+        </p>
+
+        <p>
+          Best vibes win.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="about">
+
+    <div class="about">
+
+      <div class="section-label">About</div>
+
+      <h2 class="section-title">This started<br>with a game.</h2>
+
+      <p class="about-text">
+        Emma's Beach Volleyball started with a group of friends
+        getting together to play. It grew into tournaments,
+        new teams, new friends, and full days on the beach.
+      </p>
+
+      <p class="about-text">
+        The goal is simple: make beach volleyball accessible,
+        competitive, social, and worth spending a Saturday on.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="cta" id="contact">
+
+    <h2>BRING YOUR<br>FRIENDS.</h2>
+
+    <p>
+      Come play. Stay for the chaos.
+    </p>
+
+    <a class="button" href="#tournaments">
+      See upcoming tournaments
+    </a>
+
+  </section>
+
+
+  <footer>
+
+    <strong>EMMA'S BEACH VOLLEYBALL</strong>
+
+    <p>
+      Boston, Massachusetts
+    </p>
+
+  </footer>
 
 </body>
 </html>
