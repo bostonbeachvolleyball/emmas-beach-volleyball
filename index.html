@@ -4,11 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Emma's Beach Volleyball | Boston</title>
+  <title>emma's beach volleyball</title>
 
   <style>
+    :root {
+      --sand: #f8f4eb;
+      --teal: #2c9696;
+      --dark-teal: #173b3b;
+      --light-teal: #dcefee;
+      --white: #ffffff;
+      --border: #d9ddd7;
+    }
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -16,293 +27,451 @@
     }
 
     body {
-      margin: 0;
+      background: var(--sand);
+      color: var(--dark-teal);
       font-family: Arial, Helvetica, sans-serif;
-      color: #173b3b;
-      background: #f8f4eb;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* --------------------
+       NAVIGATION
+    -------------------- */
+
     nav {
-      height: 76px;
-      padding: 0 6%;
+      width: 100%;
+      padding: 24px 5vw;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      background: #f8f4eb;
-      border-bottom: 1px solid #ddd7ca;
+      align-items: center;
+      position: relative;
+      z-index: 10;
     }
 
     .logo {
       display: flex;
       flex-direction: column;
       line-height: 1;
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -1px;
+      color: var(--dark-teal);
     }
 
-    .logo small {
-      font-size: 8px;
-      letter-spacing: 2px;
-      margin-top: 5px;
+    .logo-main {
+      font-size: 20px;
       font-weight: 700;
+      letter-spacing: -0.6px;
     }
 
-    nav a {
-      color: #173b3b;
-      text-decoration: none;
-      margin-left: 28px;
-      font-size: 14px;
+    .logo-sub {
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
       font-weight: 600;
     }
 
-    .hero {
-      min-height: 620px;
-      padding: 100px 8%;
-      background: #2c9696;
-      color: white;
-      display: flex;
-      align-items: center;
+    .nav-links a {
+      transition: opacity 0.2s ease;
     }
 
-    .hero-content {
-      max-width: 900px;
+    .nav-links a:hover {
+      opacity: 0.55;
+    }
+
+    /* --------------------
+       HERO
+    -------------------- */
+
+    .hero {
+      min-height: 78vh;
+      padding: 8vh 5vw 10vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 13px;
+      color: var(--teal);
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 20px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
-      font-size: clamp(70px, 11vw, 150px);
-      line-height: 0.9;
-      letter-spacing: -7px;
-      margin: 0 0 35px;
+      font-size: clamp(70px, 13vw, 190px);
+      line-height: 0.82;
+      letter-spacing: -0.075em;
+      font-weight: 800;
+      max-width: 1100px;
+      margin-left: -8px;
     }
 
-    .hero p {
+    .hero-description {
+      margin-top: 48px;
       max-width: 600px;
-      font-size: 22px;
-      line-height: 1.5;
-      margin-bottom: 35px;
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.35;
     }
 
-    .button {
-      display: inline-block;
-      padding: 15px 25px;
-      background: white;
-      color: #176b6b;
-      text-decoration: none;
-      border-radius: 3px;
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 34px;
+      background: var(--teal);
+      color: var(--white);
+      padding: 15px 24px;
+      width: fit-content;
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.4px;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
+
+    .hero-button:hover {
+      transform: translateY(-2px);
+      background: var(--dark-teal);
+    }
+
+    /* --------------------
+       SECTION STRUCTURE
+    -------------------- */
 
     section {
-      padding: 90px 8%;
+      padding: 110px 5vw;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-label {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      color: #2c9696;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
     }
 
     .section-title {
-      font-size: clamp(38px, 6vw, 64px);
-      line-height: 1;
-      letter-spacing: -3px;
-      margin: 0 0 50px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      margin-bottom: 55px;
     }
 
-    .tournament {
-      max-width: 1050px;
-      margin: 0 auto;
-      background: #fffdf8;
-      border: 1px solid #ddd7ca;
+    /* --------------------
+       FEATURED TOURNAMENT
+    -------------------- */
+
+    .featured {
+      background: var(--dark-teal);
+      color: var(--sand);
+    }
+
+    .featured .section-label {
+      color: #76c7c5;
+    }
+
+    .featured-grid {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 70px;
+      align-items: start;
     }
 
-    .tournament-date {
-      background: #173b3b;
-      color: white;
-      padding: 50px;
+    .tournament-name {
+      font-size: clamp(45px, 6vw, 82px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      margin-bottom: 30px;
+    }
+
+    .tournament-intro {
+      max-width: 650px;
+      font-size: 19px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .tournament-meta {
+      border-top: 1px solid rgba(248, 244, 235, 0.3);
+      margin-top: 42px;
+    }
+
+    .meta-row {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      gap: 20px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(248, 244, 235, 0.3);
+      font-size: 14px;
     }
 
-    .date-number {
-      font-size: 90px;
-      line-height: 0.9;
-      font-weight: 800;
-      letter-spacing: -5px;
-    }
-
-    .date-month {
-      font-size: 22px;
+    .meta-label {
+      opacity: 0.55;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-top: 10px;
+      letter-spacing: 1px;
+      font-size: 10px;
+      font-weight: 700;
     }
 
-    .tournament-info {
-      padding: 50px;
+    .meta-value {
+      text-align: right;
+      font-weight: 600;
     }
 
-    .tournament-info h3 {
-      font-size: 36px;
-      line-height: 1.1;
-      margin: 0 0 25px;
-      letter-spacing: -1px;
+    .tournament-card {
+      background: var(--sand);
+      color: var(--dark-teal);
+      padding: 35px;
     }
 
-    .details {
-      border-top: 1px solid #ddd7ca;
-      border-bottom: 1px solid #ddd7ca;
-      padding: 20px 0;
-      margin: 25px 0;
+    .tournament-card h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
     }
 
-    .details p {
-      margin: 7px 0;
+    .tournament-card p {
+      font-size: 15px;
+      line-height: 1.55;
+      margin-bottom: 25px;
     }
 
-    .formats {
-      background: #e7dfcf;
+    .card-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--teal);
+      color: var(--white);
+      padding: 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: background 0.2s ease;
     }
 
-    .format-grid {
+    .card-button:hover {
+      background: var(--dark-teal);
+    }
+
+    /* --------------------
+       FORMATS
+    -------------------- */
+
+    .formats-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
     .format-card {
-      background: #f8f4eb;
-      padding: 40px;
-      min-height: 280px;
+      border: 1px solid var(--border);
+      padding: 42px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .format-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--teal);
     }
 
     .format-card h3 {
-      font-size: 34px;
-      margin: 0 0 15px;
-      letter-spacing: -1px;
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      margin-bottom: 25px;
     }
+
+    .format-card p {
+      max-width: 450px;
+      font-size: 16px;
+    }
+
+    /* --------------------
+       ABOUT
+    -------------------- */
 
     .about {
-      max-width: 1000px;
-      margin: 0 auto;
+      background: var(--light-teal);
     }
 
-    .about-text {
-      font-size: 27px;
-      line-height: 1.4;
-      max-width: 850px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: start;
     }
+
+    .about-heading {
+      font-size: clamp(42px, 5vw, 70px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .about-copy {
+      font-size: clamp(20px, 2.2vw, 30px);
+      line-height: 1.35;
+      max-width: 720px;
+    }
+
+    .about-copy p + p {
+      margin-top: 28px;
+    }
+
+    /* --------------------
+       CTA
+    -------------------- */
 
     .cta {
-      background: #2c9696;
-      color: white;
+      padding: 140px 5vw;
       text-align: center;
     }
 
     .cta h2 {
-      font-size: clamp(45px, 7vw, 85px);
-      line-height: 0.95;
-      letter-spacing: -4px;
-      margin: 0 auto 25px;
-      max-width: 900px;
+      font-size: clamp(55px, 10vw, 135px);
+      line-height: 0.85;
+      letter-spacing: -0.07em;
+      margin-bottom: 40px;
     }
 
     .cta p {
-      font-size: 20px;
-      margin-bottom: 30px;
+      max-width: 520px;
+      margin: 0 auto 30px;
+      font-size: 18px;
     }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--dark-teal);
+      color: var(--sand);
+      padding: 16px 30px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      background: var(--teal);
+    }
+
+    /* --------------------
+       FOOTER
+    -------------------- */
 
     footer {
-      background: #173b3b;
-      color: white;
-      padding: 45px 8%;
+      background: var(--dark-teal);
+      color: var(--sand);
+      padding: 35px 5vw;
       display: flex;
       justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-size: 11px;
     }
 
-    footer p {
-      margin: 0;
-      opacity: 0.8;
-      font-size: 14px;
+    footer .footer-brand {
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
+
+    footer .footer-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    footer a:hover {
+      opacity: 0.6;
+    }
+
+    /* --------------------
+       MOBILE
+    -------------------- */
 
     @media (max-width: 750px) {
 
       nav {
-        padding: 0 5%;
+        padding: 20px 6vw;
       }
 
-      nav div:last-child {
-        display: none;
+      .logo-main {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        font-size: 11px;
       }
 
       .hero {
-        min-height: 560px;
-        padding: 80px 7%;
+        min-height: 75vh;
+        padding: 8vh 6vw 10vh;
       }
 
       .hero h1 {
-        font-size: clamp(60px, 17vw, 100px);
-        letter-spacing: -5px;
+        font-size: clamp(62px, 18vw, 110px);
       }
 
-      .hero p {
-        font-size: 19px;
+      .hero-description {
+        margin-top: 35px;
       }
 
       section {
-        padding: 65px 7%;
+        padding: 80px 6vw;
       }
 
-      .tournament {
+      .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .formats-grid {
         grid-template-columns: 1fr;
       }
 
-      .tournament-date {
-        min-height: 250px;
+      .format-card {
+        min-height: 260px;
+        padding: 30px;
       }
 
-      .date-number {
-        font-size: 70px;
-      }
-
-      .tournament-info {
-        padding: 35px;
-      }
-
-      .format-grid {
+      .about-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
 
-      .about-text {
-        font-size: 22px;
+      .cta {
+        padding: 100px 6vw;
       }
 
       footer {
+        padding: 30px 6vw;
         flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -310,183 +479,289 @@
 
 <body>
 
+  <!-- NAVIGATION -->
+
   <nav>
+    <a href="#" class="logo">
+      <span class="logo-main">emma's</span>
+      <span class="logo-sub">beach volleyball</span>
+    </a>
 
-    <div class="logo">
-      <span>EMMA'S</span>
-      <small>BEACH VOLLEYBALL</small>
-    </div>
-
-    <div>
+    <div class="nav-links">
       <a href="#tournaments">Tournaments</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
-
   </nav>
 
 
-  <section class="hero">
+  <!-- HERO -->
 
-    <div class="hero-content">
+  <main>
 
-      <div class="eyebrow">Boston • Massachusetts</div>
+    <section class="hero">
 
-      <h1>MAKE A DAY.</h1>
+      <div class="eyebrow">
+        Boston-area beach volleyball
+      </div>
 
-      <p>
+      <h1>
+        MAKE<br>
+        A DAY.
+      </h1>
+
+      <p class="hero-description">
         Beach volleyball tournaments built around good competition,
         good people, and a little bit of chaos.
       </p>
 
-      <a class="button" href="#tournaments">
-        View the next tournament
+      <a href="#tournaments" class="hero-button">
+        SEE UPCOMING TOURNAMENTS
       </a>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <section id="tournaments">
+    <!-- FEATURED TOURNAMENT -->
 
-    <div class="section-label">Next up</div>
+    <section class="featured" id="tournaments">
 
-    <h2 class="section-title">Come play.</h2>
+      <div class="section-inner">
 
-    <div class="tournament">
-
-      <div class="tournament-date">
-
-        <div>
-          <div class="date-number">04</div>
-          <div class="date-month">October</div>
+        <div class="section-label">
+          Upcoming tournament
         </div>
 
-        <div>Sunday · 2026</div>
+        <div class="featured-grid">
 
-      </div>
+          <div>
+
+            <h2 class="tournament-name">
+              Spooky Season<br>
+              Jamboree
+            </h2>
+
+            <p class="tournament-intro">
+              The final full day of beach volleyball tournaments
+              at Revere Beach for the season.
+            </p>
+
+            <div class="tournament-meta">
+
+              <div class="meta-row">
+                <span class="meta-label">Date</span>
+                <span class="meta-value">Sunday, October 4, 2026</span>
+              </div>
+
+              <div class="meta-row">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">
+                  Revere Beach, Massachusetts
+                </span>
+              </div>
+
+              <div class="meta-row">
+                <span class="meta-label">2s</span>
+                <span class="meta-value">
+                  9:00 AM – 1:30 PM
+                </span>
+              </div>
+
+              <div class="meta-row">
+                <span class="meta-label">4s</span>
+                <span class="meta-value">
+                  1:30 PM – 6:00 PM
+                </span>
+              </div>
+
+              <div class="meta-row">
+                <span class="meta-label">Suggested</span>
+                <span class="meta-value">$20</span>
+              </div>
+
+            </div>
+
+          </div>
 
 
-      <div class="tournament-info">
+          <div class="tournament-card">
 
-        <h3>Spooky Season Jamboree</h3>
+            <h3>
+              Come play
+            </h3>
 
-        <p>
-          The final full day of tournaments at Revere Beach
-          for the season.
-        </p>
+            <p>
+              Two tournaments, one beach, and a full day
+              of volleyball.
+            </p>
 
-        <div class="details">
-          <p><strong>Location:</strong> Revere Beach</p>
-          <p><strong>Start:</strong> 8:30 AM</p>
-          <p><strong>Formats:</strong> 2s and 4s</p>
-          <p><strong>Suggested contribution:</strong> $20</p>
+            <p>
+              Register with your team or come as a free agent.
+              Spectators are welcome too.
+            </p>
+
+            <a
+              href="https://partiful.com/"
+              target="_blank"
+              class="card-button"
+            >
+              RSVP ON PARTIFUL
+            </a>
+
+          </div>
+
         </div>
 
-        <a class="button" href="#">
-          Tournament details
-        </a>
+      </div>
+
+    </section>
+
+
+    <!-- FORMATS -->
+
+    <section>
+
+      <div class="section-inner">
+
+        <div class="section-label">
+          The format
+        </div>
+
+        <h2 class="section-title">
+          COME FOR THE<br>
+          VOLLEYBALL.
+        </h2>
+
+        <div class="formats-grid">
+
+          <div class="format-card">
+
+            <div class="format-number">
+              01 — TWO PERSON
+            </div>
+
+            <div>
+              <h3>2s</h3>
+
+              <p>
+                Competitive doubles volleyball with teams
+                of 2M, 1M1F, or 2F. Friendly, organized,
+                and played by the book.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="format-card">
+
+            <div class="format-number">
+              02 — FOUR PERSON
+            </div>
+
+            <div>
+              <h3>4s</h3>
+
+              <p>
+                More people, more games, and more chaos.
+                Modified beach rules and a focus on
+                good vibes.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <section class="formats">
+    <!-- ABOUT -->
 
-    <div class="section-label">How we play</div>
+    <section class="about" id="about">
 
-    <h2 class="section-title">Two ways to<br>hit the sand.</h2>
+      <div class="section-inner">
 
-    <div class="format-grid">
+        <div class="section-label">
+          About
+        </div>
 
-      <div class="format-card">
+        <div class="about-grid">
 
-        <h3>2s</h3>
+          <h2 class="about-heading">
+            MORE THAN<br>
+            A TOURNAMENT.
+          </h2>
 
-        <p>
-          Competitive doubles beach volleyball with a friendly
-          atmosphere. Teams of 2M, 1M1F, or 2F are welcome.
-        </p>
+          <div class="about-copy">
 
-        <p>
-          Played by the book, but nobody is taking themselves
-          too seriously.
-        </p>
+            <p>
+              These tournaments started as a way to get
+              friends together on the beach.
+            </p>
+
+            <p>
+              Now they're a place to meet new people,
+              play some volleyball, and spend an entire
+              day outside.
+            </p>
+
+            <p>
+              Nothing too serious. Nothing too corporate.
+              Just good competition, good people,
+              and a little bit of chaos.
+            </p>
+
+          </div>
+
+        </div>
 
       </div>
 
-
-      <div class="format-card">
-
-        <h3>4s</h3>
-
-        <p>
-          Grab three friends and get on the sand. Modified
-          four-person rules, beach games, and a strong emphasis
-          on having a good time.
-        </p>
-
-        <p>
-          Best vibes win.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <section id="about">
+    <!-- CTA -->
 
-    <div class="about">
+    <section class="cta" id="contact">
 
-      <div class="section-label">About</div>
+      <h2>
+        BRING YOUR<br>
+        FRIENDS.
+      </h2>
 
-      <h2 class="section-title">This started<br>with a game.</h2>
-
-      <p class="about-text">
-        Emma's Beach Volleyball started with a group of friends
-        getting together to play. It grew into tournaments,
-        new teams, new friends, and full days on the beach.
+      <p>
+        Got a team? Want to play? Want to help out?
+        Come make a day of it.
       </p>
 
-      <p class="about-text">
-        The goal is simple: make beach volleyball accessible,
-        competitive, social, and worth spending a Saturday on.
-      </p>
+      <a
+        href="mailto:"
+        class="cta-button"
+      >
+        GET IN TOUCH
+      </a>
 
-    </div>
+    </section>
 
-  </section>
+  </main>
 
 
-  <section class="cta" id="contact">
-
-    <h2>BRING YOUR<br>FRIENDS.</h2>
-
-    <p>
-      Come play. Stay for the chaos.
-    </p>
-
-    <a class="button" href="#tournaments">
-      See upcoming tournaments
-    </a>
-
-  </section>
-
+  <!-- FOOTER -->
 
   <footer>
 
-    <strong>EMMA'S</strong>
+    <div class="footer-brand">
+      emma's beach volleyball
+    </div>
 
-    <p>
-      Boston, Massachusetts
-    </p>
+    <div class="footer-links">
+      <a href="#tournaments">Tournaments</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
 
   </footer>
 
